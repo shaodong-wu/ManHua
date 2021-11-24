@@ -1,0 +1,27 @@
+<!-- comic-box component -->
+<view class="book-box">
+  <!-- 块头部 -->
+  <view class="box-head">
+    <view class="left">
+      <text class="title">{{ title }}</text>
+      <van-icon name="arrow" />
+    </view>
+
+    <!-- <view class="right">
+      <text>换一换</text>
+      
+    </view> -->
+  </view>
+
+  <!-- 块主体 -->
+  <view class="box-body">
+    <block wx:for="{{ exhibitCartoon }}" wx:key="index" wx:for-item="comic">
+      <comic-card 
+        url="/pages/bookDetails/bookDetails?comic_id={{ comic.comic_id }}"
+        imgUrl="{{ imgHost }}{{comic.img_url}}"
+        title="{{comic.comic_name}}"
+        feature="{{comic.content}}" 
+      />
+    </block>
+  </view>
+</view>

@@ -1,0 +1,14 @@
+{
+  "name": "manhua",
+  "version": "1.0.0",
+  "description": "My first ManHua Website",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "wu_shaodong",
+  "license": "ISC",
+  "dependencies": {
+    "@vant/weapp": "^1.8.4"
+  }
+}

@@ -1,0 +1,145 @@
+<import src="/templates/loading/index.wxml"></import>
+
+<!-- 数据_格式_过滤器 -->
+<wxs src="/filter/format-filter.wxs" module="filter"></wxs>
+
+<!-- 顶部导航__Btn -->
+<van-nav-bar title="极品狂婿" left-arrow fixed placeholder border="{{ false }}" title-class="top-nav" bind:click-left="returnUpLevelHandle"
+/>
+
+<!-- 图书详情页 -->
+<scroll-view scroll-y="true" enhanced="{{ true }}" show-scrollbar="{{ false }}">
+  <view class="comic-wrapper">
+    <!-- 漫画_详解 -->
+    <view class="comic-details">
+      <image class="cover" src="{{ comicDetails.cover_list[0] }}" />
+      <view class="content">
+        <text class="title">{{ comicDetails.comic_name }}</text>
+        <view class="info">
+          <view class="comic-tip">
+            <view class="copyright-type">{{ comicDetails.copyright_type_cn }}</view>
+            <text class="comic-status">{{ comicDetails.update_status_str }}</text>
+          </view>
+          <text class="comic-heat">人气 {{ filter.formatNumber(comicDetails.renqi) }}</text>
+          <view class="comic-type">
+            <block wx:for="{{ comicDetails.comic_type }}" wx:key="index">
+              <text class="item">{{ item }}</text>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 漫画_描述 -->
+    <view class="comic-desc">
+      简介:{{ comicDetails.comic_desc }}
+    </view>
+    <!-- 漫画_角色 -->
+    <scroll-view class="slide-role" scroll-x="true" enable-flex="true" enhanced="{{ true }}" show-scrollbar="{{ false }}">
+      <block wx:for="{{ comicRole }}" wx:key="index">
+        <view class="item">
+          <image class="sculpture" src="{{ item.sculpture }}" />
+          <view class="introduce">
+            <text class="typename">{{ item.typename }}</text>
+            <text class="name">{{ item.name }}</text>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+    <!-- 漫画_目录 -->
+    <view class="comuic-catalogue">
+      <view class="left">
+        <text class="tip">目录</text>
+        <text class="update-time">{{ filter.dateFormat(comicDetails.update_time) }}更新至</text>
+      </view>
+      <view class="right">
+        <text class="chapter-name">{{ comicDetails.last_chapter_name }}</text>
+        <van-icon class="arrow" name="arrow" />
+      </view>
+    </view>
+    <!-- 漫画_打榜 -->
+    <view class="comic-influence">
+      <view class="head">
+        <view class="left"></view>
+        <view class="theme" bindtap="showInfluenceHandle">
+          <text class="txt">打榜</text>
+          <van-icon class="arrow-up" name="arrow-up" wx:if="{{ isShowInfluence }}" />
+          <van-icon class="arrow-down" name="arrow-down" wx:else />
+        </view>
+        <view class="right"></view>
+      </view>
+      <view class="body">
+        <view class="heat">
+          <text space="ensp">本周人气 {{ filter.formatNumber(comicInfluence.thisweek_heat) }}</text>
+          <view class="rank">
+            <text class="thisweek_rank">排名 {{ comicInfluence.thisweek_heat_rank }}</text>
+            <van-icon name="/static/images/arrow/icon_16_arrow_rise.png" size="35rpx" 
+              wx:if="{{ comicInfluence.uprise_rank > 0 }}" 
+            />
+            <van-icon name="/static/images/arrow/icon_16_arrow_decline.png" size="35rpx" wx:else />
+            <text class="uprise-rank">{{ filter.abs(comicInfluence.uprise_rank) }}</text>
+          </view>
+        </view>
+        <view class="linebox" hidden="{{ !isShowInfluence }}" >
+          <view class="line">
+            <view class="item">
+              <text>{{ filter.formatNumber(comicInfluence.pv) }}</text>
+              <text>阅读</text>
+            </view>
+            <view class="item">
+              <text>{{ filter.formatNumber(comicInfluence.uv) }}</text>
+              <text>日活</text>
+            </view>
+            <view class="item">
+              <text>{{ filter.formatNumber(comicInfluence.collect) }}</text>
+              <text>收藏</text>
+            </view>
+            <view class="item">
+              <text>{{ filter.formatNumber(comicInfluence.share) }}</text>
+              <text>分享</text>
+            </view>
+            <view class="item">
+              <text>{{ filter.formatNumber(comicInfluence.comment) }}</text>
+              <text>留言</text>
+            </view>
+          </view>
+          <view class="line">
+            <view class="item">
+              <text>{{ filter.formatNumber(comicInfluence.reward) }}</text>
+              <text>赞赏</text>
+            </view>
+            <view class="item">
+              <text>{{ filter.formatNumber(comicInfluence.gift) }}</text>
+              <text>礼物</text>
+            </view>
+            <view class="item">
+              <text>{{ filter.formatNumber(comicInfluence.ticket) }}</text>
+              <text>月票</text>
+            </view>
+            <view class="item">
+              <text>{{ filter.formatNumber(comicInfluence.recommend) }}</text>
+              <text>推荐</text>
+            </view>
+            <view class="item">
+              <text>{{ comicInfluence.score }}</text>
+              <text>评分</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 漫画_推荐 -->
+  </view>
+  <view class="btn-area">
+    <view class="bottom-btn">
+      <van-icon class="prefix-icon" name="like-o" />
+      <text class="tip">收藏</text>
+    </view>
+    <view class="bottom-btn" bindtap="startReadingHandle">
+      <image class="prefix-img" mode="heightFix" src="/static/images/button/icon_64_book_start_reading.png" />
+      <text class="tip">开始阅读</text>
+    </view>
+  </view>
+</scroll-view>
+
+<!-- 数据渲染Wait -->
+<template is="loading" data="{{ isHideLoading }}"></template>

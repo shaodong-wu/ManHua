@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "pureDataPattern": "^_",
+  "usingComponents": {
+    "van-icon": "@vant/weapp/icon/index",
+    "comic-card": "../card/index"
+  }
+}

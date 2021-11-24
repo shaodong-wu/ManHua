@@ -1,0 +1,66 @@
+<!-- 漫画_View_Lsit -->
+<scroll-view class="view-port" scroll-y enhanced show-scrollbar="{{ false }}" bindscrolltolower="scrollToLowerHandle"
+  bindtap="showMenuHandle">
+  <view wx:for="{{ imageViewsList }}" wx:key="index" wx:for-item="chapter" 
+    class="chapter" data-title="{{ chapter.chapter_name }}">
+    <block wx:for="{{ chapter.chapterImgList }}" wx:key="index" wx:for-item="imgUrl">
+      <van-image custom-class="image-view" src="{{ imgUrl }}" width="100%" fit="widthFix" lazy-load use-loading-slot
+        use-error-slot>
+        <view class="loading" slot="loading">
+          <text class="tip">{{ index + 1 }}</text>
+        </view>
+        <view class="error" slot="error">
+          <text class="tip">《{{ chapterInfo.comic_name }}》加载失败 呜〒▽〒</text>
+          <view class="action">
+            <button class="action" plain hover-class="none" size="mini">反馈</button>
+            <button class="action" plain hover-class="none" size="mini">刷新</button>
+          </view>
+        </view>
+      </van-image>
+    </block>
+  </view>
+</scroll-view>
+
+<!-- 顶部导航__Btn -->
+<van-popup position="top" overlay="{{ false }}" show="{{ isShowMenu }}">
+  <van-nav-bar title="{{ chapterList[chapterIndex].chapter_name }}" left-arrow border="{{ false }}"
+    title-class="top-nav" bind:click-left="returnUpLevelHandle"
+  />
+</van-popup>
+
+<!-- 底部功能_Btn -->
+<van-popup custom-class="btn-wrapper" round position="bottom" overlay="{{ false }}" show="{{ isShowMenu }}">
+  <view class="bottom-btn" bindtap="showSideCatalogueHandle">
+    <van-icon class-prefix="kanman-icon" name="mulu" size="50rpx" />
+    <text class="tip">目录</text>
+  </view>
+  <view class="bottom-btn">
+    <van-icon class-prefix="kanman-icon" name="shipin" size="50rpx" />
+    <text class="tip">自动</text>
+  </view>
+  <view class="bottom-btn">
+    <van-icon class-prefix="kanman-icon" name="jindu" size="50rpx" />
+    <text class="tip">进度</text>
+  </view>
+  <view class="bottom-btn">
+    <van-icon class-prefix="kanman-icon" name="shezhi" size="50rpx" />
+    <text class="tip">设置</text>
+  </view>
+</van-popup>
+
+<!-- 侧边目录_导航 -->
+<van-popup custom-class="side-wrapper" position="right" bind:click-overlay="test" show="{{ isShowCatalogue }}"
+  bind:click-overlay="closeSideCatalogueHandle">
+  <view class="side-head">
+    <text class="summary">共{{ chapterList.length }}章 连载中</text>
+    <text class="update-time">昨天更新</text>
+  </view>
+  <view class="side-body">
+    <block wx:for="{{ chapterList }}" wx:key="index" wx:for-item="chapter">
+      <navigator class="item" hover-class="none" open-type="redirect"
+        url="/pages/chapterRead/chapterRead?comic_id={{ chapterInfo.comic_id }}&chapter_newid={{ chapter.chapter_newid }}">
+        <text space="emsp">{{ chapter.chapter_name }}</text>
+      </navigator>
+    </block>
+  </view>
+</van-popup>

@@ -1,0 +1,19 @@
+<wxs src="/filter/format-filter.wxs" module="filter"></wxs>
+
+<view class="cover-wrapper">
+  <navigator url="{{ url }}" hover-class="none">
+    <view class="cover">
+      <lazy-image width="100%" 
+        ratio="{{ filter.convertRatioFormat('2:1') }}" 
+        fit="widthFix" src="{{ cover }}"
+      />
+      <!-- <text class="feature">{{ feature }}</text> -->
+    </view>
+    <view class="details">
+      <text class="prefix">{{ type }}</text>
+      <text class="name">{{ name }}</text>
+    </view>
+    <text class="latest-chapter">{{ latestChapter }}</text>
+    <image wx:if="{{ isShowSplit }}" class="split-line" src="/static/images/other/ico_fish.png" />
+  </navigator>
+</view>

@@ -1,0 +1,49 @@
+<import src="/templates/wait/index.wxml"></import>
+<import src="/templates/refresh/index.wxml"></import>
+
+<!-- 漫画首页 浏览展示 -->
+<scroll-view class="view-body" scroll-y="true" enable-flex="true" bindscrolltolower="scrollToLowerHandle">
+  <!-- 幻灯片区 Main -->
+  <view class="slide-wrapper">
+    <swiper autoplay="true" interval="3500" circular="true">
+      <swiper-item wx:for="{{slideList}}" wx:key="index" data-comicId="{{item.comicId}}">
+        <image src="{{ coverHost }}{{ item.imgUrl }}"></image>
+      </swiper-item>
+    </swiper>
+    <!-- 猫耳 背景图 -->
+    <view class="cat-ear"></view>
+  </view>
+
+  <!-- 漫画浏览 Main -->
+  <view class="comic-main">
+    <view class="book-content">
+      <view class="mult sow" wx:for="{{ comicList }}" wx:key="index" wx:for-item="list">
+        <view class="mult-head">
+          <view class="left">
+            <text class="mult-title">{{ list.title }}</text>
+            <van-icon class="arrow" name="arrow" />
+          </view> <!-- 标题 -->
+        </view> <!-- 块头部 E -->
+
+        <view class="mult-body">
+          <block wx:for="{{ list.comic_info }}" wx:key="index" wx:for-item="comic" wx:if="{{index < 6}}">
+            <comic-card 
+              style="width: 31.5%;" 
+              url="/pages/bookDetails/bookDetails?comic_id={{ comic.comic_id }}"
+              imgUrl="https://image.yqmh.com/mh/{{comic.comic_id}}.jpg-300x400.jpg"
+              horizonratio="3:4"
+              title="{{comic.comic_name}}" 
+              feature="{{comic.content}}" 
+            />
+          </block>
+        </view> <!-- 块主体 E -->
+      </view> <!-- 书卡片 E -->
+    </view>
+
+    <template is="refresh" data="{{ isHidRefresh, isNoMore }}"></template>
+  </view>
+</scroll-view>
+
+<!-- 数据渲染_等待Load -->
+<template is="wait" data="{{ isHidWait }}"></template>
+

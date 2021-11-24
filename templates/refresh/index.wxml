@@ -1,0 +1,8 @@
+<template name="refresh">
+  <view class="loading" hidden="{{ false }}">
+    <view hidden="{{ isNoMore }}">
+      <image class="img" src="/static/images/loading/mascot-sleep-active.gif" />
+    </view>
+    <text class="nomore" hidden="{{ !isNoMore }}">主人没有更多了呢( ๑ŏ ﹏ ŏ๑ )</text>
+  </view>
+</template>

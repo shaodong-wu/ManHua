@@ -1,0 +1,59 @@
+/* 自定义 tabBar style */
+.tab-bar {
+  z-index: 999;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 110rpx;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.tab-bar-bg, .tab-bar-list {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.tab-bar-list {
+  z-index: 99;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+.tab-bar-item {
+  display: flex;
+  flex: 1;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.tab-bar-item .icon {
+  width: 56rpx;
+  height: 56rpx;
+}
+
+.tab-bar-item .home {
+  width: 100rpx;
+  height: 100rpx;
+  margin-bottom: 10rpx;
+  transform-origin: center bottom;
+}
+
+.tab-bar-item .home.action {
+  transform: scale(1.4);
+}
+
+.tab-bar-item .text {
+  font-size: 20rpx;
+  line-height: 35rpx;
+}

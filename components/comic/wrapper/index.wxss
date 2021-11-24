@@ -1,0 +1,32 @@
+.book-box {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 0 25rpx;
+}
+
+.box-head, .box-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.box-head .left .title,
+.box-head .left .arrow {
+  color: #555555;
+  font-size: 40rpx;
+}
+
+.box-head .left .title {
+  font-weight: 700;
+  margin-right: 10rpx;
+}
+
+.box-body {
+  flex-flow: row wrap;
+  overflow: hidden;
+}

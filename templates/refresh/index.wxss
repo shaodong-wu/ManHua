@@ -1,0 +1,14 @@
+.loading {
+  width: 100%;
+  padding-bottom: 25rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #ddd;
+  font-size: 30rpx;
+  text-align: center;
+}
+
+.loading .img {
+  width: 135rpx; 
+  height: 100rpx;
+}

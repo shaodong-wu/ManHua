@@ -1,0 +1,6 @@
+{
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "comic-cover": "/components/comic/cover/index"
+  }
+}

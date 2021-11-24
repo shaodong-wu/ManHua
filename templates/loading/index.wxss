@@ -1,0 +1,49 @@
+@keyframes loadingRotate{
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.load-wrapper {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+
+.loading {
+  width: 400rpx;
+  height: 80rpx;
+  border-radius: 80rpx;
+  background-color: #000000;
+  padding: 0;
+}
+
+.load-wrapper,
+.load-wrapper .loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading .icon {
+  display: inline-block;
+  width: 40rpx;
+  height: 40rpx;
+  padding: 0;
+  animation: loadingRotate 1s ease-in-out infinite;
+}
+
+.loading .tip {
+  display: inline-block;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  font-size: 25rpx;
+  text-align: center;
+  margin-left: 20rpx;
+}

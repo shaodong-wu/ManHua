@@ -1,0 +1,15 @@
+<!-- 自定义 tabBar -->
+<view class="tab-bar">
+  <image class="tab-bar-bg" src="../static/images/tabBar/ico_bg_daohanglan.png"></image>
+  <view class="tab-bar-list">
+    <view class="tab-bar-item" wx:for="{{list}}" wx:key="index" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab">
+      <image
+        class="{{ index == 2? (selected == 2? 'home action' : 'home') : ('icon') }}" 
+        src="{{ selected == index? item.selectedIconPath : item.iconPath }}" 
+      />
+      <view class="text" style="color: {{selected === index ? '#fc6976' : '#999'}};">
+        {{item.text}}
+      </view>
+    </view>
+  </view>
+</view>

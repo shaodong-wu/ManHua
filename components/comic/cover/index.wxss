@@ -1,0 +1,68 @@
+/* comic-cover style */
+.cover-wrapper {
+  margin: 0 auto;
+  padding: 0 0;
+}
+
+.cover {
+  position: relative;
+}
+
+.cover .feature {
+  z-index: 100;
+  display: block;
+  position: absolute;
+  bottom: 40rpx;
+  color: #bd10e0;
+  font-family: 'STCaiyun';
+  font-size: 40rpx;
+  font-weight: 900;
+  width: 100%;
+}
+
+.details {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+.details .prefix {
+  display: inline-block;
+  height: 20rpx;
+  color: #b667a0;
+  font-size: 18rpx;
+  text-align: center;
+  line-height: 20rpx;
+  border: 2rpx solid #b667a0;
+  padding: 4rpx 12rpx;
+  border-radius: 30rpx;
+}
+
+.details .name {
+  font-size: 30rpx;
+  margin-left: 10rpx;
+}
+
+.latest-chapter {
+  display: block;
+  width: 100%;
+  color: #999999;
+  font-size: 25rpx;
+  padding-top: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.cover .feature,
+.details .prefix,
+.latest-chapter {
+  margin-left: 25rpx;
+}
+
+.split-line {
+  z-index: 99;
+  display: block;
+  position: relative;
+  bottom: -10rpx;
+  width: 100%;
+  height: 20rpx;
+}

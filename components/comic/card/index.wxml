@@ -1,0 +1,13 @@
+<wxs src="/filter/format-filter.wxs" module="filter"></wxs>
+
+<!-- 漫画卡片 -->
+<view class="card">
+  <navigator url="{{ url }}" hover-class="none">
+    <lazy-image width="100%" 
+      ratio="{{ filter.convertRatioFormat(horizonratio) }}" 
+      fit="widthFix" radius="6" src="{{ imgUrl }}" 
+    />
+    <text class="title">{{ title }}</text>
+    <text class="feature">{{ feature }}</text>
+  </navigator>
+</view>

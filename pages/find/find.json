@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "lazy-image": "/components/lazy-image/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-loading": "@vant/weapp/loading/index"
+  }
+}

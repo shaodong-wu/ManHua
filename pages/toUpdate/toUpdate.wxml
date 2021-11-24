@@ -1,0 +1,35 @@
+<import src="/templates/wait/index.wxml"></import>
+
+<!-- 漫画卡片_展示 -->
+<scroll-view class="update-list" scroll-y="true" scroll-into-view="item_{{ activeIndex }}" 
+  style="padding-top: {{ topDistance }}px;">
+  <block wx:for="{{ slideList }}" wx:key="index" wx:for-item="slideInfo">
+    <view class="item-wrapper"  id="item_{{ index }}">
+      <text class="head">{{ slideInfo.comicUpdateDate_new }}</text>
+      <view class="body">
+        <comic-cover 
+          wx:for="{{ slideInfo.info }}" wx:key="index" wx:for-item="comicInfo" 
+          url="/pages/bookDetails/bookDetails?comic_id={{ comicInfo.comic_id }}"
+          name="{{ comicInfo.comic_name }}" 
+          type="{{ comicInfo.comic_type[0] }}" 
+          feature="{{ comicInfo.comic_feature }}"
+          latestChapter="{{ comicInfo.comic_chapter_name }}" 
+          cover="{{ comicInfo.feature_img }}"
+          isShowSplit="{{ index === (slideInfo.info.length-1)? false : true }}" 
+        />
+      </view>
+    </view>
+  </block>
+</scroll-view>
+
+<!-- 侧边导航 -->
+<view class="side-wrapper">
+  <block wx:for="{{ slideList }}" wx:key="index">
+    <view class="{{ index === activeIndex? 'item-nav active' : 'item-nav'}}" data-index="{{index}}" bind:tap="onClickHandle">
+      {{ item.comicUpdateDate }}
+    </view>
+  </block>
+</view>
+
+<!-- 数据渲染_等待Load -->
+<template is="wait" data="{{ isHidWait }}"></template>

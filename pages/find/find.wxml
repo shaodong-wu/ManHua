@@ -1,0 +1,5 @@
+<lazy-image src="https://image.yqmh.com/mh/108517.jpg-300x400.jpg" width="100rpx" fit="widthFix" />
+
+<van-image src="https://image.yqmh.com/mh/108517.jpg-300x400.jpg" width="100rpx" fit="widthFix" use-loading-slot >
+  <van-loading slot="loading" type="spinner" size="20" vertical />
+</van-image>

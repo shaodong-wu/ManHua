@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "lazy-image": "../../lazy-image/index"
+  }
+}
