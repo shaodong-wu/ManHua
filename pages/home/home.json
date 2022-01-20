@@ -1,5 +1,7 @@
 {
   "usingComponents": {
+    "wait": "/components/wait/index",
+    "refresh": "/components/refresh/index",
     "van-icon": "@vant/weapp/icon/index",
     "lazy-image": "/components/lazy-image/index",
     "comic-card": "/components/comic/card/index"

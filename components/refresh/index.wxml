@@ -1,0 +1,6 @@
+<view class="loading" hidden="{{ isHidRefresh }}">
+  <view hidden="{{ isNoMore }}">
+    <image class="img" src="/static/images/loading/mascot-sleep-active.gif" />
+  </view>
+  <text hidden="{{ !isNoMore }}">主人没有更多了呢( ๑ŏ ﹏ ŏ๑ )</text>
+</view>

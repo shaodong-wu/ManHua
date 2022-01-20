@@ -4,11 +4,29 @@
   "description": "My first ManHua Website",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint --fix ."
   },
   "author": "wu_shaodong",
   "license": "ISC",
   "dependencies": {
     "@vant/weapp": "^1.8.4"
-  }
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shaodong-wu/ManHua.git"
+  },
+  "eslintIgnore": [
+    "node_modules",
+    "miniprogram_npm",
+    ".eslintrc.js",
+    "package.json",
+    "project.config.json"
+  ]
 }

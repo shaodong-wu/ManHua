@@ -1,6 +1,7 @@
 {
   "navigationBarTextStyle": "black",
   "usingComponents": {
+  "wait": "/components/wait/index",
     "comic-cover": "/components/comic/cover/index"
   }
 }

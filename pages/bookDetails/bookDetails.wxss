@@ -324,5 +324,3 @@
   font-size: 50rpx;
   margin-right: 20rpx
 }
-
-@import '/templates/loading/index.wxss';

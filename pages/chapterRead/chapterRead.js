@@ -25,20 +25,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (params) {
-    const { comic_id, chapter_newid } = params;
+    const { comic_id, chapter_newid } = {
+      comic_id: '108645',
+      chapter_newid: 'yugao-1625536100021'
+    };
+    // const { comic_id, chapter_newid } = params;
     const self = this;
     Promise.all([getChapterInfo(comic_id, chapter_newid, 'high'), getChapterList(comic_id)])
-    .then(result => {
-      const currentChapter = {
-        chapterId: result[0].current_chapter.chapter_id,
-        chapterImgList: result[0].current_chapter.chapter_img_list
-      };
-      self.setData({
-        chapterInfo: result[0],
-        chapterList: result[1].reverse(),
-        imageViewsList: [...self.data.imageViewsList, currentChapter]
+      .then(result => {
+        const currentChapter = {
+          chapterId: result[0].current_chapter.chapter_id,
+          chapterImgList: result[0].current_chapter.chapter_img_list
+        };
+        self.setData({
+          chapterInfo: result[0],
+          chapterList: result[1].reverse(),
+          imageViewsList: [...self.data.imageViewsList, currentChapter]
+        });
       });
-    });
   },
 
   /**
@@ -65,17 +69,17 @@ Page({
     const nextChapterIndex = this.data.chapterIndex + 1;
     const self = this;
     getChapterInfo(comicId, chapterList[nextChapterIndex].chapter_newid, 'high')
-    .then(chapterInfo => {
-      const currentChapter = {
-        chapterId: chapterInfo.current_chapter.chapter_id,
-        chapterImgList: chapterInfo.current_chapter.chapter_img_list
-      };
-      self.setData({
-        chapterInfo: chapterInfo,
-        chapterIndex: nextChapterIndex,
-        imageViewsList: [...self.data.imageViewsList, currentChapter]
+      .then(chapterInfo => {
+        const currentChapter = {
+          chapterId: chapterInfo.current_chapter.chapter_id,
+          chapterImgList: chapterInfo.current_chapter.chapter_img_list
+        };
+        self.setData({
+          chapterInfo: chapterInfo,
+          chapterIndex: nextChapterIndex,
+          imageViewsList: [...self.data.imageViewsList, currentChapter]
+        });
       });
-    });
   }, 500),
 
   showMenuHandle: function () {
@@ -105,6 +109,6 @@ Page({
   returnUpLevelHandle: function () {
     wx.navigateBack({
       delta: 1
-    })
+    });
   }
-})
+});

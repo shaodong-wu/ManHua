@@ -1,5 +1,0 @@
-<template name="wait">
-  <view class="wait" hidden="{{ isHidWait }}">
-    <image class="img" src="/static/images/loading/cat-loading.gif" />
-  </view>
-</template>

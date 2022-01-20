@@ -1,6 +1,3 @@
-<import src="/templates/wait/index.wxml"></import>
-<import src="/templates/refresh/index.wxml"></import>
-
 <!-- 漫画首页 浏览展示 -->
 <scroll-view class="view-body" scroll-y="true" enable-flex="true" bindscrolltolower="scrollToLowerHandle">
   <!-- 幻灯片区 Main -->
@@ -40,10 +37,10 @@
       </view> <!-- 书卡片 E -->
     </view>
 
-    <template is="refresh" data="{{ isHidRefresh, isNoMore }}"></template>
+    <refresh isHidRefresh="{{ isHidRefresh }}" isNoMore="{{isNoMore  }}" />
   </view>
 </scroll-view>
 
 <!-- 数据渲染_等待Load -->
-<template is="wait" data="{{ isHidWait }}"></template>
+<wait isHidWait="{{ isHidWait }}"></wait>
 

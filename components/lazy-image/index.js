@@ -1,20 +1,17 @@
 // components/lazy-image/index.js
 Component({
   options: {
-    multipleSlots: true // 在组件定义时的选项中启用多slot支持
+    multipleSlots: true, // 在组件定义时的选项中启用多slot支持
   },
   externalClasses: ['custom-class'],
   properties: {
     src: String,
-    width: null,
-    height: null,
-    radius: null,
+    width: String,
+    height: String,
+    radius: String,
     useErrorSlot: Boolean,
     useLoadingSlot: Boolean,
-    ratio: {
-      type: Number,
-      value: 1
-    },
+    ratio: Number,
     fit: {
       type: String,
       value: 'fill',
@@ -30,48 +27,49 @@ Component({
   },
 
   data: {
-    url: '',
-    error: false,
-    loading: false,
-    alreadyShow: false  // 用于标记图片是否已经出现在可见区域中
+    imageUrl: '',
+    isLoading: true,
+    isError: false,
+    alreadyShow: false, // 用于标记图片是否已经出现在可见区域中
   },
 
   lifetimes: {
-    ready() {
+    ready () {
       // observer的元素必须有高度 不然不会触发回调
       this.createIntersectionObserver()
-      .relativeToViewport({ bottom: 100 })
-      .observe('.lazy-load', (rect) => {
-        // 如果图片进入可见区域，但还是第一次出现
-        if (!this.data.alreadyShow) {
-          this.setData({
-            url: rect.dataset.src,
-            loading: true,
-            alreadyShow: true
-          });
-        }
-      });
-    }
+        .relativeToViewport({
+          bottom: 100,
+        })
+        .observe('.viewport', (rect) => {
+          // 如果图片进入可见区域，但还是第一次出现
+          if (!this.data.alreadyShow) {
+            this.setData({
+              imageUrl: rect.dataset.src,
+              alreadyShow: true,
+            });
+          }
+        });
+    },
   },
 
   methods: {
-    onLoad(event) {
+    onLoad (event) {
       this.setData({
-        loading: false
+        isLoading: false,
       });
       this.triggerEvent('load', event);
     },
 
-    onError(event) {
+    onError (event) {
       this.setData({
-        error: true,
-        loading: false
+        isError: true,
+        isLoading: false,
       });
       this.triggerEvent('error', event);
     },
 
-    onClick(event) {
+    onClick (event) {
       this.triggerEvent('click', event);
-    }
-  }
-})
+    },
+  },
+});

@@ -1,15 +1,10 @@
-const app = getApp();
-
+// components/loading/index.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    url: String,
-    imgUrl: String,
-    horizonratio: String,
-    title: String,
-    feature: String
+    isHideLoading: Boolean
   },
 
   /**

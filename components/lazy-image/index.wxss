@@ -1,12 +1,4 @@
-.load-wrapper {
-	position: relative;
-	display: inline-block;
-}
-
 .lazy-image {
-	position: absolute;
-	top: 0;
-	left: 0;
 	border-radius: inherit;
 }
 
@@ -19,16 +11,8 @@
 	min-height: inherit;
 }
 
-.img-loading {
-	display: block;
-	width: 100%;
-	height: 100%;
-}
 .img-error,
 .img-loading {
-	position: absolute;
-	top: 0;
-	left: 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;

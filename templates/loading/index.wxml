@@ -1,8 +1,0 @@
-<template name="loading">
-  <view class="load-wrapper" hidden="{{ isHideLoading }}">
-    <view class="loading">
-      <image class="icon" src="/static/images/loading/icon_loading_circle.png" />
-      <text class="tip">正在接入M27星球...请稍后</text>
-    </view>
-  </view>
-</template>

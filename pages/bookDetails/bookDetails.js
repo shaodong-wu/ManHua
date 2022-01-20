@@ -25,14 +25,14 @@ Page({
     const { comic_id } = params;
     const self = this;
     Promise.all([getComicInfoBody(comic_id), getComicInfoRole(comic_id), getComicInfoInfluence(comic_id)])
-    .then(res => {
-      self.setData({
-        comicId: comic_id,
-        comicDetails: res[0],
-        comicRole: res[1],
-        comicInfluence: res[2]
+      .then(res => {
+        self.setData({
+          comicId: comic_id,
+          comicDetails: res[0],
+          comicRole: res[1],
+          comicInfluence: res[2]
+        });
       });
-    });
   },
 
   /**
@@ -60,6 +60,6 @@ Page({
   returnUpLevelHandle: function () {
     wx.navigateBack({
       delta: 1
-    })
+    });
   }
-})
+});

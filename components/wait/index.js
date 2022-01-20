@@ -1,15 +1,10 @@
-const app = getApp();
-
+// components/wait/index.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    url: String,
-    imgUrl: String,
-    horizonratio: String,
-    title: String,
-    feature: String
+    isHidWait: Boolean
   },
 
   /**

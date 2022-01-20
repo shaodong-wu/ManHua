@@ -69,4 +69,4 @@ Component({
       this._filterComicData(newValue);
     }
   }
-})
+});

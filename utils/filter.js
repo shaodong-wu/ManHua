@@ -11,7 +11,7 @@ const formatTime = (date) => {
 
 const formatNumber = (n) => {
   n = n.toString();
-  return n[1] ? n : '0' + n;
+  return n[1] ? n : `0${  n}`;
 };
 
 // 计算宽高比
@@ -48,9 +48,7 @@ const convertRatioFormat = (ratioStr) => {
 };
 
 // 深克隆对象
-const deepClone = (obj) => {
-  return JSON.parse(JSON.stringify(obj));
-};
+const deepClone = (obj) => JSON.parse(JSON.stringify(obj));
 
 // 将要显示的图片列表数据过滤成需要的格式
 const filterDataList = (dataObj = { comic_info: [] }, start, end) => {
@@ -109,16 +107,14 @@ const makeImgUrlById = (
   imgHost = `${app.globalData.imgHost}/file/kanmanhua_images/head/`,
   size = 'm3x4',
 ) => {
-  let idStr = '' + id;
+  let idStr = `${  id}`;
   const LEN = 9;
   // 在数字字符串前补0至9位数字的字符串  '1234567' => '001234567'
   for (let i = idStr.length; i < LEN; i = idStr.length) {
-    idStr = '0' + idStr;
+    idStr = `0${  idStr}`;
   }
   // 将补0后的字符串数字切成千分位 001234567 => 001,234,567
-  idStr = idStr.replace(/\d{1,3}(?=(\d{3})+$)/g, (match) => {
-    return match + ',';
-  });
+  idStr = idStr.replace(/\d{1,3}(?=(\d{3})+$)/g, (match) => `${match  },`);
   // 将千分位的字符串数字按照','切分成['001', '234', '567']
   const idStrArr = idStr.split(',');
   const idFirst = idStrArr[0];

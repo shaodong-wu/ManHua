@@ -2,26 +2,26 @@
 
 <view
   style="{{ computed.rootStyle({ width, height, radius, ratio }) }}"
-  class="load-wrapper custom-class"
+  class="custom-class viewport"
+  data-src="{{ src }}"
   bind:tap="onClick"
 >
   <image
-    src="{{ url }}"
-    class="lazy-load lazy-image"
-    wx:if="{{ !error }}"
-    data-src="{{ src }}"
+    src="{{ imageUrl }}"
+    class="lazy-image"
+    wx:if="{{ !isError }}"
     mode="{{ computed.mode(fit) }}"
     role="img"
     bind:load="onLoad"
     bind:error="onError"
   />
 
-  <view wx:if="{{ loading && showLoading }}" class="img-loading">
+  <view wx:if="{{ isLoading && showLoading }}" class="img-loading">
     <slot wx:if="{{ useLoadingSlot }}" name="loading"></slot>
     <van-loading wx:else type="spinner" size="20" vertical />
   </view>
 
-  <view wx:if="{{ error && showError }}" class="img-error">
+  <view wx:if="{{ isError && showError }}" class="img-error">
     <slot wx:if="{{ useErrorSlot }}" name="error"></slot>
     <van-icon wx:else name="photo-fail" />
   </view>

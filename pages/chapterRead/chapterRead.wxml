@@ -4,8 +4,8 @@
   <view wx:for="{{ imageViewsList }}" wx:key="index" wx:for-item="chapter" 
     class="chapter" data-title="{{ chapter.chapter_name }}">
     <block wx:for="{{ chapter.chapterImgList }}" wx:key="index" wx:for-item="imgUrl">
-      <van-image custom-class="image-view" src="{{ imgUrl }}" width="100%" fit="widthFix" lazy-load use-loading-slot
-        use-error-slot>
+      <lazy-image custom-class="image-view" src="{{ imgUrl }}" width="100%" fit="widthFix" 
+        use-loading-slot use-error-slot>
         <view class="loading" slot="loading">
           <text class="tip">{{ index + 1 }}</text>
         </view>
@@ -16,7 +16,7 @@
             <button class="action" plain hover-class="none" size="mini">刷新</button>
           </view>
         </view>
-      </van-image>
+      </lazy-image>
     </block>
   </view>
 </scroll-view>

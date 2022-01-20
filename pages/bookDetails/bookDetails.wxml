@@ -1,5 +1,3 @@
-<import src="/templates/loading/index.wxml"></import>
-
 <!-- 数据_格式_过滤器 -->
 <wxs src="/filter/format-filter.wxs" module="filter"></wxs>
 
@@ -142,4 +140,4 @@
 </scroll-view>
 
 <!-- 数据渲染Wait -->
-<template is="loading" data="{{ isHideLoading }}"></template>
+<loading isHideLoading="{{ isHideLoading }}" />

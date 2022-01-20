@@ -80,6 +80,3 @@
   flex-flow: row wrap;
   overflow: hidden;
 }
-
-@import '/templates/wait/index.wxss';
-@import '/templates/refresh/index.wxss';

@@ -5,8 +5,8 @@ var addUnit = require('../wxs/add-unit.wxs');
 function rootStyle(data) {
   return style([
     {
-      width: addUnit(data.width),
-      height: addUnit(data.height),
+      'width': addUnit(data.width),
+      'height': addUnit(data.height),
       'padding-bottom': (data.ratio * 100) + '%',
       'border-radius': addUnit(data.radius),
     }

@@ -42,7 +42,7 @@ Page({
       //自定义组件的getTabBar 方法，可获取当前页面下的自定义 tabBar 组件实例。
       this.getTabBar().setData({
         selected: 1 //这个是tabBar中当前页对应的下标
-      })
+      });
     }
   },
 
@@ -54,4 +54,4 @@ Page({
     let activeIndex = event.currentTarget.dataset.index;
     this.setData({ activeIndex });
   }
-})
+});

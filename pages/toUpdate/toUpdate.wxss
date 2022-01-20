@@ -41,5 +41,3 @@
 .side-wrapper .item-nav.active {
   color: #fc6976;
 }
-
-@import '/templates/wait/index.wxss';

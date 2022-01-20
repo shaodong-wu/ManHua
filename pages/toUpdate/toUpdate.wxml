@@ -1,5 +1,3 @@
-<import src="/templates/wait/index.wxml"></import>
-
 <!-- 漫画卡片_展示 -->
 <scroll-view class="update-list" scroll-y="true" scroll-into-view="item_{{ activeIndex }}" 
   style="padding-top: {{ topDistance }}px;">
@@ -32,4 +30,4 @@
 </view>
 
 <!-- 数据渲染_等待Load -->
-<template is="wait" data="{{ isHidWait }}"></template>
+<wait isHidWait="{{ isHidWait }}"></wait>

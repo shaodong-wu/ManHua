@@ -6,8 +6,8 @@ Component({
     url: String,
     name: String,
     type: String,
-    cover : String,
-    feature:String,
+    cover: String,
+    feature: String,
     latestChapter: String,
     isShowSplit: Boolean
   },
@@ -25,4 +25,4 @@ Component({
   methods: {
 
   }
-})
+});

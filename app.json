@@ -1,8 +1,8 @@
 {
-  "entryPagePath": "pages/home/home",
+  "entryPagePath": "pages/chapterRead/chapterRead",
   "pages": [
-    "pages/home/home",
     "pages/chapterRead/chapterRead",
+    "pages/home/home",
     "pages/bookDetails/bookDetails",
     "pages/bookshelf/bookshelf",
     "pages/find/find",
