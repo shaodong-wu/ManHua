@@ -4,7 +4,7 @@
 <view class="card">
   <navigator url="{{ url }}" hover-class="none">
     <lazy-image width="100%" 
-      ratio="{{ filter.convertRatioFormat(horizonratio) }}" 
+      ratio="{{ filter.convertRatioFormat(horizonratio) }}"
       fit="widthFix" radius="6" src="{{ imgUrl }}" 
     />
     <text class="title">{{ title }}</text>

@@ -11,7 +11,7 @@ Component({
     radius: String,
     useErrorSlot: Boolean,
     useLoadingSlot: Boolean,
-    ratio: Number,
+    ratio: String,
     fit: {
       type: String,
       value: 'fill',

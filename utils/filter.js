@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const app = getApp();
 
 // 将时间转成 yyyy-mm-dd 格式
@@ -26,7 +28,7 @@ const computedRatio = (ratioStr) => {
 
 // 将 1:1 形式 转化为 1x1 根式
 const convertRatioFormat = (ratioStr) => {
-  let result = {};
+  const result = {};
   const ratioArr = ratioStr.split(':');
   const width = +ratioArr[0]; // 将数字字符串转成数字 + '1' => 1
   const height = +ratioArr[1];

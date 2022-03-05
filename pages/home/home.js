@@ -3,7 +3,7 @@ const { getRecommendList } = require('../../services/recommend');
 
 const app = getApp();
 
-const MAX_PAGE_NUMBER = 4; 
+const MAX_PAGE_NUMBER = 4;
 
 Page({
   data: {
@@ -14,7 +14,6 @@ Page({
     bookType: 132,
     isHidWait: false,
     isNoMore: false,
-    isHidRefresh: false
   },
 
   /**
@@ -24,10 +23,10 @@ Page({
     const self = this;
     const bookType = this.data.bookType;
     getRecommendList(1, bookType).then(comicList => {
-      const slideInfo = comicList.splice(0, 1)[0]['comic_info'];
+      const slideInfo = comicList.splice(0, 1)[0].comic_info;
       const slideList = slideInfo.map(item => {
-        let comicId = item.comic_id;
-        let imgUrl = item.img_url;
+        const comicId = item.comic_id;
+        const imgUrl = item.img_url;
         return { comicId, imgUrl };
       });
       self.setData({ slideList, comicList });
@@ -48,11 +47,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    //添加选中效果
+    // 添加选中效果
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-      //自定义组件的getTabBar 方法，可获取当前页面下的自定义 tabBar 组件实例。
+      // 自定义组件的getTabBar 方法，可获取当前页面下的自定义 tabBar 组件实例。
       this.getTabBar().setData({
-        selected: 2 //这个是tabBar中当前页对应的下标
+        selected: 2 // 这个是tabBar中当前页对应的下标
       });
     }
   },
@@ -60,13 +59,12 @@ Page({
   scrollToLowerHandle: throttle(function () {
     const self = this;
     let curPageNum = this.data.curPageNum;
-    let comicList = this.data.comicList;
-    let bookType = this.data.bookType;
+    const comicList = this.data.comicList;
+    const bookType = this.data.bookType;
     if (curPageNum < MAX_PAGE_NUMBER) {
       // 显示 Loading
       self.setData({
         isNoMore: false,
-        isHidRefresh: true
       });
 
       // 请求数据，并添加至 comicList
@@ -79,7 +77,6 @@ Page({
       // 显示 底部 Tip
       this.setData({
         isNoMore: true,
-        isHidRefresh: true
       });
     }
   }, 500)

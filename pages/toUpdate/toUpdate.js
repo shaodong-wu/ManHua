@@ -37,21 +37,21 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    //添加选中效果
+    // 添加选中效果
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-      //自定义组件的getTabBar 方法，可获取当前页面下的自定义 tabBar 组件实例。
+      // 自定义组件的getTabBar 方法，可获取当前页面下的自定义 tabBar 组件实例。
       this.getTabBar().setData({
-        selected: 1 //这个是tabBar中当前页对应的下标
+        selected: 1 // 这个是tabBar中当前页对应的下标
       });
     }
   },
 
   /**
   *  侧边导航按钮_点击处理
-  * @param {*} event 
+  * @param {*} event
   */
   onClickHandle: function (event) {
-    let activeIndex = event.currentTarget.dataset.index;
+    const activeIndex = event.currentTarget.dataset.index;
     this.setData({ activeIndex });
   }
 });

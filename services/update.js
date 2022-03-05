@@ -11,12 +11,12 @@ const getUpdateList = () => new Promise((resolve, reject) => {
     dataType: 'json',
     success: result => {
       const updatelist = result.data.data.update || [];
-      const new_updatelist = updatelist.sort(function (obj_1, obj_2) {
-        let value_1 = obj_1['comicUpdateDate_weight'];
-        let value_2 = obj_2['comicUpdateDate_weight'];
-        return value_2 - value_1;
+      const newUpdatelist = updatelist.sort(function (obj1, obj2) {
+        const value1 = obj1.comicUpdateDate_weight;
+        const value2 = obj2.comicUpdateDate_weight;
+        return value2 - value1;
       });
-      resolve(new_updatelist);
+      resolve(newUpdatelist);
     },
     fail: error => reject(error)
   });

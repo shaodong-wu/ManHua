@@ -32,5 +32,18 @@ module.exports = {
     'object-property-newline': [2, {
       'allowAllPropertiesOnSameLine': true
     }],
-  }
+  },
+  overrides: [
+    {
+      files: ['*.wxs'],
+      globals: {
+        getDate: true,
+        getRegExp: true
+      },
+      rules: {
+        'no-var': 0,
+        'prefer-template': 0,
+      }
+    }
+  ],
 }

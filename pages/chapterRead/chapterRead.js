@@ -2,7 +2,7 @@ const {
   getChapterInfo,
   getChapterList
 } = require('../../services/chapterInfo');
-const { 
+const {
   throttle
 } = require('../../utils/function-utils');
 
@@ -25,13 +25,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (params) {
-    const { comic_id, chapter_newid } = {
-      comic_id: '108645',
-      chapter_newid: 'yugao-1625536100021'
-    };
-    // const { comic_id, chapter_newid } = params;
+    // const { comic_id, chapter_newid } = {
+    //   comic_id: '108645',
+    //   chapter_newid: 'yugao-1625536100021'
+    // };
+    const { comicId, chapterNewid } = params;
     const self = this;
-    Promise.all([getChapterInfo(comic_id, chapter_newid, 'high'), getChapterList(comic_id)])
+    Promise.all([getChapterInfo(comicId, chapterNewid, 'high'), getChapterList(comicId)])
       .then(result => {
         const currentChapter = {
           chapterId: result[0].current_chapter.chapter_id,
@@ -84,9 +84,9 @@ Page({
 
   showMenuHandle: function () {
     const isShowMenu = this.data.isShowMenu;
-    this.setData({ isShowMenu: !isShowMenu});
+    this.setData({ isShowMenu: !isShowMenu });
     wx.setNavigationBarColor({
-      frontColor: !isShowMenu? '#000000' : '#ffffff',
+      frontColor: !isShowMenu ? '#000000' : '#ffffff',
       backgroundColor: '#ffffff'
     });
   },

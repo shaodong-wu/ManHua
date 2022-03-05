@@ -22,12 +22,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (params) {
-    const { comic_id } = params;
+    const { comicId } = params;
     const self = this;
-    Promise.all([getComicInfoBody(comic_id), getComicInfoRole(comic_id), getComicInfoInfluence(comic_id)])
+    Promise.all([getComicInfoBody(comicId), getComicInfoRole(comicId), getComicInfoInfluence(comicId)])
       .then(res => {
         self.setData({
-          comicId: comic_id,
+          comicId: comicId,
           comicDetails: res[0],
           comicRole: res[1],
           comicInfluence: res[2]
@@ -49,7 +49,7 @@ Page({
     const comicId = this.data.comicId;
     const chapterList = this.data.comicDetails.comic_chapter;
     wx.navigateTo({
-      url: `/pages/chapterRead/chapterRead?comic_id=${comicId}&chapter_newid=${chapterList[chapterList.length-1].chapter_id}`
+      url: `/pages/chapterRead/chapterRead?comicId=${comicId}&chapterNewid=${chapterList[chapterList.length - 1].chapter_id}`
     });
   },
 

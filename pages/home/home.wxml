@@ -26,7 +26,7 @@
           <block wx:for="{{ list.comic_info }}" wx:key="index" wx:for-item="comic" wx:if="{{index < 6}}">
             <comic-card 
               style="width: 31.5%;" 
-              url="/pages/bookDetails/bookDetails?comic_id={{ comic.comic_id }}"
+              url="/pages/bookDetails/bookDetails?comicId={{ comic.comic_id }}"
               imgUrl="https://image.yqmh.com/mh/{{comic.comic_id}}.jpg-300x400.jpg"
               horizonratio="3:4"
               title="{{comic.comic_name}}" 
@@ -36,8 +36,8 @@
         </view> <!-- 块主体 E -->
       </view> <!-- 书卡片 E -->
     </view>
-
-    <refresh isHidRefresh="{{ isHidRefresh }}" isNoMore="{{isNoMore  }}" />
+    <!-- 加载更多数据_等待Load -->
+    <refresh isNoMore="{{isNoMore  }}" />
   </view>
 </scroll-view>
 
