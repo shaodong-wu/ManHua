@@ -21,10 +21,10 @@
 
 ```css
 ├── ManHua
-│   ├── components				// 自定义组件
-│   ├── custom-tab-bar  	// 自定义底部导航
+│   ├── components                    // 自定义组件
+│   ├── custom-tab-bar                // 自定义底部导航
 │   ├── data
-│   ├── filter						// 数据过滤器
+│   ├── filter                        // 数据过滤器
 │   ├── miniprogram_npm
 │   ├── node_modules
 │   ├── pages
@@ -32,14 +32,14 @@
 │   ├── static
 │   └── utils
 │   ├── app.js
-│   ├── app.json          // 全局配置
-│   ├── app.wxss          // 全局样式
+│   ├── app.json                      // 全局配置
+│   ├── app.wxss                      // 全局样式
 │   ├── package-lock.json
 │   ├── package.json
 │   ├── project.config.json
 │   ├── project.private.config.json
 │   ├── sitemap.json
-│   ├── README.md					// 项目文档
+│   ├── README.md                     // 项目文档
 
 ```
 
@@ -95,4 +95,4 @@
 
 本项目的所有图片资源、UI设计以及软件仅用于个人学习开发测试，所有 `看漫画` `看漫`  相关字样版权属于看漫画动漫有限公司，勿用于商业及非法用途，如产生法律纠纷与本人无关。
 
-**如此项目造成侵权损失，请联系本人删除：2361954836@qq.com**
+**如此项目造成侵权损失，请联系本人删除：[2361954836@qq.com](mailto:2361954836@qq.com)**
