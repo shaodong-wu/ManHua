@@ -85,9 +85,12 @@
 }
 
 .comic-wrapper .slide-role {
-  white-space: nowrap;    /* DIV 不换行 */
+  white-space: nowrap;
   height: 68rpx;
+  padding-left: 38rpx;
+  margin: 0 -38rpx;
   margin-top: 30rpx;
+  overflow-x: scroll;
 }
 
 .comic-wrapper .slide-role .item {

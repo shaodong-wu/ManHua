@@ -37,7 +37,7 @@
       </view> <!-- 书卡片 E -->
     </view>
     <!-- 加载更多数据_等待Load -->
-    <refresh isNoMore="{{isNoMore  }}" />
+    <refresh isHidRefresh="{{isHidRefresh}}"  isNoMore="{{isNoMore}}" />
   </view>
 </scroll-view>
 

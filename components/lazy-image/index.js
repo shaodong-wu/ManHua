@@ -28,6 +28,7 @@ Component({
 
   data: {
     imageUrl: '',
+    imageRatio: 0,
     isLoading: true,
     isError: false,
     alreadyShow: false, // 用于标记图片是否已经出现在可见区域中
@@ -54,8 +55,10 @@ Component({
 
   methods: {
     onLoad (event) {
+      const { width, height } = event.detail;
       this.setData({
         isLoading: false,
+        imageRatio: height / width
       });
       this.triggerEvent('load', event);
     },

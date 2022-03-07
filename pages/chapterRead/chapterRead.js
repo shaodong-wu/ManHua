@@ -25,10 +25,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (params) {
-    // const { comic_id, chapter_newid } = {
-    //   comic_id: '108645',
-    //   chapter_newid: 'yugao-1625536100021'
-    // };
     const { comicId, chapterNewid } = params;
     const self = this;
     Promise.all([getChapterInfo(comicId, chapterNewid, 'high'), getChapterList(comicId)])

@@ -58,7 +58,7 @@
   <view class="side-body">
     <block wx:for="{{ chapterList }}" wx:key="index" wx:for-item="chapter">
       <navigator class="item" hover-class="none" open-type="redirect"
-        url="/pages/chapterRead/chapterRead?comic_id={{ chapterInfo.comic_id }}&chapter_newid={{ chapter.chapter_newid }}">
+        url="/pages/chapterRead/chapterRead?comicId={{ chapterInfo.comic_id }}&chapterNewid={{ chapter.chapter_newid }}">
         <text space="emsp">{{ chapter.chapter_name }}</text>
       </navigator>
     </block>

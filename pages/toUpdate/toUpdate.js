@@ -19,7 +19,7 @@ Page({
   onLoad: function (options) {
     const self = this;
     getUpdateList().then(slideList => {
-      self.setData({ slideList });
+      self.setData({ slideList, isHidWait: true });
     });
   },
 
@@ -27,10 +27,7 @@ Page({
   * 生命周期函数--监听页面初次渲染完成
   */
   onReady: function () {
-    const self = this;
-    setTimeout(function () {
-      self.setData({ isHidWait: true });
-    }, 1000);
+
   },
 
   /**

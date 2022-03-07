@@ -1,28 +1,19 @@
 <wxs src="./index.wxs" module="computed" />
 
-<view
-  style="{{ computed.rootStyle({ width, height, radius, ratio }) }}"
-  class="custom-class viewport"
-  data-src="{{ src }}"
-  bind:tap="onClick"
+<view 
+  style="{{ computed.rootStyle({ width, height, radius, ratio: ratio === '' ? imageRatio : ratio }) }}" 
+  class="custom-class viewport" 
+  data-src="{{ src }}" bind:tap="onClick"
 >
-  <image
-    src="{{ imageUrl }}"
-    class="lazy-image"
-    wx:if="{{ !isError }}"
-    mode="{{ computed.mode(fit) }}"
-    role="img"
-    bind:load="onLoad"
-    bind:error="onError"
-  />
+  <image src="{{ imageUrl }}" class="lazy-image" wx:if="{{ !isError }}" mode="{{ computed.mode(fit) }}" role="img" bind:load="onLoad" bind:error="onError" />
 
-  <view wx:if="{{ isLoading && showLoading }}" class="img-loading">
-    <slot wx:if="{{ useLoadingSlot }}" name="loading"></slot>
-    <van-loading wx:else type="spinner" size="20" vertical />
+  <view wx:if="{{ isLoading && showLoading && !useLoadingSlot }}" class="img-loading">
+    <van-loading type="spinner" size="20" vertical />
   </view>
+  <slot wx:elif="{{ isLoading && showLoading && useLoadingSlot }}" name="loading"></slot>
 
-  <view wx:if="{{ isError && showError }}" class="img-error">
-    <slot wx:if="{{ useErrorSlot }}" name="error"></slot>
-    <van-icon wx:else name="photo-fail" />
+  <view wx:if="{{ isError && showError && !useErrorSlot }}" class="img-error">
+    <van-icon name="photo-fail" />
   </view>
+  <slot wx:elif="{{ isError && showError && useErrorSlot }}" name="error"></slot>
 </view>

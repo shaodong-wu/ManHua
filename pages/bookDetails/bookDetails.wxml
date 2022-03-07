@@ -32,7 +32,7 @@
       简介:{{ comicDetails.comic_desc }}
     </view>
     <!-- 漫画_角色 -->
-    <scroll-view class="slide-role" scroll-x="true" enable-flex="true" enhanced="{{ true }}" show-scrollbar="{{ false }}">
+    <view class="slide-role">
       <block wx:for="{{ comicRole }}" wx:key="index">
         <view class="item">
           <image class="sculpture" src="{{ item.sculpture }}" />
@@ -42,7 +42,7 @@
           </view>
         </view>
       </block>
-    </scroll-view>
+    </view>
     <!-- 漫画_目录 -->
     <view class="comuic-catalogue">
       <view class="left">

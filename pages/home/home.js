@@ -13,6 +13,7 @@ Page({
     curPageNum: 1,
     bookType: 132,
     isHidWait: false,
+    isHidRefresh: true,
     isNoMore: false,
   },
 
@@ -29,18 +30,8 @@ Page({
         const imgUrl = item.img_url;
         return { comicId, imgUrl };
       });
-      self.setData({ slideList, comicList });
+      self.setData({ slideList, comicList, isHidWait: true });
     });
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    const self = this;
-    setTimeout(function () {
-      self.setData({ isHidWait: true });
-    }, 1000);
   },
 
   /**
@@ -65,6 +56,7 @@ Page({
       // 显示 Loading
       self.setData({
         isNoMore: false,
+        isHidRefresh: false
       });
 
       // 请求数据，并添加至 comicList
@@ -77,6 +69,7 @@ Page({
       // 显示 底部 Tip
       this.setData({
         isNoMore: true,
+        isHidRefresh: false
       });
     }
   }, 500)

@@ -1,0 +1,28 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "漫画阅读页面调试",
+          "pathName": "pages/chapterRead/chapterRead",
+          "query": "comicId=108645&chapterNewid=yugao-1625536100021",
+          "scene": 1000,
+          "partialCompile": {
+            "enabled": true,
+            "pages": []
+          }
+        }
+      ]
+    }
+  }
+}
