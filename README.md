@@ -32,8 +32,8 @@
 │   ├── static
 │   └── utils
 │   ├── app.js
-│   ├── app.json
-│   ├── app.wxss
+│   ├── app.json          // 全局配置
+│   ├── app.wxss          // 全局样式
 │   ├── package-lock.json
 │   ├── package.json
 │   ├── project.config.json
