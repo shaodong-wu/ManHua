@@ -13,7 +13,7 @@
   2. 运用ES6新语法 Promise 对象 进行二次封装HTTP 请求，解决回调地狱问题
   3. 采用 函数防抖、节流等相关技术优化项目
   4. 封装  `lazy-image` 图片懒加载组件，解决原生 `image` 组件的 `lazy-load`无效问题
-  5. 采用云开发实现用户的登录与漫画收藏功能（未实现）
+  5. 采用云开发实现用户的登录与漫画收藏功能（待完善）
 
 
 
@@ -39,7 +39,7 @@
 │   ├── project.config.json
 │   ├── project.private.config.json
 │   ├── sitemap.json
-│   ├── README.md						// 项目文档
+│   ├── README.md					// 项目文档
 
 ```
 
